@@ -5,7 +5,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class CounterTest {
-    private LettersCounter lettersCounter = new LettersCounter();
+    private final LettersCounter lettersCounter;
+
+    public CounterTest() {
+        char[] logic_chars = {'l','o','g','i','c'};
+        this.lettersCounter = new LettersCounter(logic_chars);
+    }
 
     @Test
     public void testIfPrints(){
