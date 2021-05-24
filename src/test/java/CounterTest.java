@@ -25,4 +25,27 @@ public class CounterTest {
                 "TOTAL Frequency: 0.63 (15/24)";
         Assertions.assertEquals(expected,outContent.toString());
     }
+
+    @Test
+    public void testEmptyPhrase(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        String example = "";
+        lettersCounter.calculateLOGICLetters(example);
+        String expected = "Empty phrase";
+        Assertions.assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void testUniqueCombinationSameLength(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        String example = "plate level";
+        lettersCounter.calculateLOGICLetters(example);
+        String expected = "{(l), 5} = 1.00 (3/3)\n" +
+                "TOTAL Frequency: 0.30 (3/10)";
+        Assertions.assertEquals(expected,outContent.toString());
+    }
 }
