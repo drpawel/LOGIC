@@ -4,14 +4,23 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+/**
+ * Test class
+ */
 public class CounterTest {
     private final LettersCounter lettersCounter;
 
+    /**
+     * Class constructor with specified array of chars
+     */
     public CounterTest() {
         char[] logic_chars = {'l','o','g','i','c'};
         this.lettersCounter = new LettersCounter(logic_chars);
     }
 
+    /**
+     * Test if app prints correctly
+     */
     @Test
     public void testIfPrints(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -31,6 +40,9 @@ public class CounterTest {
         Assertions.assertEquals(expected,outContent.toString());
     }
 
+    /**
+     * Test if app can handle empty phrase
+     */
     @Test
     public void testEmptyPhrase(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -42,6 +54,9 @@ public class CounterTest {
         Assertions.assertEquals(expected,outContent.toString());
     }
 
+    /**
+     * Test if app can handle unique combination and same length words
+     */
     @Test
     public void testUniqueCombinationSameLength(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
